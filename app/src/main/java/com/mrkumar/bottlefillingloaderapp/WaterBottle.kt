@@ -1,6 +1,7 @@
 package com.mrkumar.bottlefillingloaderapp
 
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.animateIntAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box
@@ -41,6 +42,11 @@ fun WaterBottleCompose(
                 label = "Water Filling Animation",
                 animationSpec = tween(1000)
     ).value
+
+    val usedWaterAnimation= animateIntAsState(targetValue = usedWaterAmount,
+        label = "Used water animation",
+        animationSpec = tween(1000)
+    ).value
     Box(modifier = Modifier
         .width(200.dp)
         .height(600.dp)){
@@ -50,7 +56,7 @@ fun WaterBottleCompose(
 
             val capWidth=size.width*0.55f
             val capHeight=size.height*0.13f
-            
+
             //Draw the bottle body
             val bottleBodyPath = Path().apply {
                 moveTo(width * 0.3f, height * 0.1f)
@@ -124,7 +130,7 @@ fun WaterBottleCompose(
                     fontSize = 44.sp
                 )
             ){
-                append(usedWaterAmount.toString())
+                append(usedWaterAnimation.toString())
             }
 
             withStyle(

@@ -70,7 +70,7 @@ class MainActivity : ComponentActivity() {
                             }
 
                         }, colors = ButtonDefaults.outlinedButtonColors(containerColor = Color(0xff279eff))) {
-                            Text(text = "Drink")
+                            Text(text = "Drink", color = Color.White)
 
                         }
                     }
